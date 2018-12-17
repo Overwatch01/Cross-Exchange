@@ -1,0 +1,50 @@
+﻿[
+  {
+    "Id": 1,
+    "NoOfShares": 50,
+    "Action": "BUY",
+    "Price": 5000.0,
+    "Symbol": "REL",
+    "PortfolioId": 1
+  },
+  {
+    "Id": 2,
+    "NoOfShares": 100,
+    "Action": "BUY",
+    "Price": 10000.0,
+    "Symbol": "REL",
+    "PortfolioId": 1
+  },
+  {
+    "Id": 3,
+    "NoOfShares": 150,
+    "Action": "BUY",
+    "Price": 14250.0,
+    "Symbol": "CBI",
+    "PortfolioId": 1
+  },
+  {
+    "Id": 4,
+    "NoOfShares": 70,
+    "Action": "SELL",
+    "Price": 6790.0,
+    "Symbol": "CBI",
+    "PortfolioId": 1
+  },
+  {
+    "Id": 5,
+    "NoOfShares": 50,
+    "Action": "SELL",
+    "Price": 6000.0,
+    "Symbol": "REL",
+    "PortfolioId": 1
+  },
+  {
+    "Id": 6,
+    "NoOfShares": 100,
+    "Action": "SELL",
+    "Price": 11000.0,
+    "Symbol": "REL",
+    "PortfolioId": 1
+  }
+]
