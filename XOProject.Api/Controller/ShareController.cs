@@ -60,7 +60,8 @@ namespace XOProject.Api.Controller
 
             var hourlyShareRate = Map(value);
             await _shareService.InsertAsync(hourlyShareRate);
-            return Created($"Share/{hourlyShareRate.Id}", Map(hourlyShareRate));
+            var result = Created($"Share/{hourlyShareRate.Id}", Map(hourlyShareRate));
+            return result;
         }
 
         private IList<HourlyShareRateModel> Map(IList<HourlyShareRate> rates)

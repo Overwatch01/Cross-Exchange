@@ -46,7 +46,7 @@ namespace XOProject.Api.Tests
             // TODO: This unit test is broken, the result received from the Post method is correct.
             var createdResult = result as CreatedResult;
             Assert.NotNull(createdResult);
-            Assert.AreEqual(201, createdResult);
+            Assert.AreEqual(201, createdResult.StatusCode);
         }
     }
 }

@@ -23,12 +23,19 @@ namespace XOProject.Api.Controller
         [HttpGet("daily/{symbol}/{year}/{month}/{day}")]
         public async Task<IActionResult> Daily([FromRoute] string symbol, [FromRoute] int year, [FromRoute] int month, [FromRoute] int day)
         {
-            // TODO: Add implementation for the daily summary
+            var date = new DateTime(year, month, day);
+            var analyticsPrice = await _analyticsService.GetDailyAsync(symbol, date);
+
+            if (analyticsPrice == null)
+            {
+                return NotFound();
+            }
+
             var result = new DailyModel()
             {
                 Symbol = symbol,
-                Day = new DateTime(),
-                Price = Map(new AnalyticsPrice())
+                Day = date,
+                Price = Map(analyticsPrice)
             };
 
             return Ok(result);
@@ -37,13 +44,19 @@ namespace XOProject.Api.Controller
         [HttpGet("weekly/{symbol}/{year}/{week}")]
         public async Task<IActionResult> Weekly([FromRoute] string symbol, [FromRoute] int year, [FromRoute] int week)
         {
-            // TODO: Add implementation for the weekly summary
+           var analyticsPrice = await _analyticsService.GetWeeklyAsync(symbol, year, week);
+
+            if (analyticsPrice == null)
+            {
+                return NotFound();
+            }
+
             var result = new WeeklyModel()
             {
                 Symbol = symbol,
                 Year = year,
                 Week = week,
-                Price = Map(new AnalyticsPrice())
+                Price = Map(analyticsPrice)
             };
 
             return Ok(result);
@@ -52,13 +65,19 @@ namespace XOProject.Api.Controller
         [HttpGet("monthly/{symbol}/{year}/{month}")]
         public async Task<IActionResult> Monthly([FromRoute] string symbol, [FromRoute] int year, [FromRoute] int month)
         {
+            var analyticsPrice = await _analyticsService.GetMonthlyAsync(symbol, year, month);
+
+            if (analyticsPrice == null)
+            {
+                return NotFound();
+            }
             // TODO: Add implementation for the monthly summary
             var result = new MonthlyModel()
             {
                 Symbol = symbol,
                 Year = year,
                 Month = month,
-                Price = Map(new AnalyticsPrice())
+                Price = Map(analyticsPrice)
             };
 
             return Ok(result);
